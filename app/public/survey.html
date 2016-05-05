@@ -21,11 +21,10 @@
                 </div>
                 <div class="modal-body">
                     <div id="bffName"></div>
-                    <div id="bffPhoto"></div>
+                    <img src="" id="bffPhoto">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -312,6 +311,7 @@
             console.log(data[bff].name);
 
             $('#bffName').append(data[bff].name);
+            $('#bffPhoto').attr('src', data[bff].photo);
         });
 
 
