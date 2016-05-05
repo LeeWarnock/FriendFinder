@@ -12,6 +12,27 @@
 </head>
 
 <body>
+    <div class="modal fade" id="bestFriendModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">YOUR NEW BFF IS:</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="bffName"></div>
+                    <div id="bffPhoto"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     <div class=" container">
         <h1>
             Survey Questions
@@ -37,7 +58,7 @@
             <strong>Question 1</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            Do you inpulsively buy candy in the checkout line at the grocery store?
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -54,7 +75,7 @@
             <strong>Question 2</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            You like turtles.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -71,7 +92,7 @@
             <strong>Question 3</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            You like to work in groups rather than alone.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -88,7 +109,7 @@
             <strong>Question 4</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            You could eat pizza for dinner everyday for the rest of your life.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -105,7 +126,7 @@
             <strong>Question 5</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            The best way to spend money is traveling.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -122,7 +143,7 @@
             <strong>Question 6</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            Music is important to you.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -139,7 +160,7 @@
             <strong>Question 7</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            The group is more important than yourself.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -156,7 +177,7 @@
             <strong>Question 8</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            This questionnaire is too long.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -173,7 +194,7 @@
             <strong>Question 9</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            You prefer beer to hard alcohol.
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -190,7 +211,7 @@
             <strong>Question 10</strong>
         </h3>
         <h4>
-            This is sample text for a question.
+            Life is meaningless and we are just ants floating on a rock in a incomprehensibly large universe. 
         </h4>
         <p>
             (1 = Strongly Disagree, 5 = Strongly Agree)
@@ -214,30 +235,92 @@
         var newFriend = {
             name: $('#name').val(),
             photo: $('#photo').val(),
-            scores: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val(), ]
+            scores: [$('#q1').val(), $('#q2').val(), $('#q3').val(), $('#q4').val(), $('#q5').val(), $('#q6').val(), $('#q7').val(), $('#q8').val(), $('#q9').val(), $('#q10').val()]
         };
 
-        console.log("This is the new Friend" + newFriend);
+        console.log(newFriend);
 
         //Grab URL of site
         var currentURL = window.location.origin;
 
+        var compatabilityArray = [];
+
+        var bestFriend = 40;
+
+        var bff = 0;
+
+
         //AJAX post the data to the friends API
-        $.post(currentURL + "/api/friends", newFriend, function(data) {
+        $.post(currentURL + "/api/friends", newFriend, function(res) {
 
         });
 
         $.get(currentURL + "/api/friends", function(data) {
-            console.log(data[0].scores[1]);
-            // for(i=0;i<data.length;i++){
-            //     console.log(data[i].scores);
-            //     for(j=0;j<data[i].scores.length;j++){
 
-            //     }
-            // }
+            //loops through each API friend
+            for (i = 0; i < data.length - 1; i++) {
+                var compatabilityScore = 0;
+
+                //console.log(data[i].name);
+                //console.log(data.length);
+
+
+
+                //loops thru each API friend's scores
+                for (j = 0; j < data[i].scores.length; j++) {
+
+                    var difference = 0;
+                    //console.log(data[i].scores.length);
+
+                    //finds difference between scores   
+                    difference = data[i].scores[j] - newFriend.scores[j];
+
+                    Math.abs(difference)
+
+                    //console.log(difference);
+
+                    //SETS COMPATABILITY SCORE TO DIFFERENCE
+                    compatabilityScore = compatabilityScore + difference;
+                    //console.log(difference);
+
+
+
+
+                }
+                //pushes differences of each score to differenceArray
+                compatabilityArray.push(compatabilityScore);
+                console.log(compatabilityArray);
+
+            }
+
+            for (l = 0; l < compatabilityArray.length; l++) {
+                if (compatabilityArray[l] < bestFriend) {
+                    bestFriend = compatabilityArray[l];
+
+                }
+
+
+
+            }
+            console.log("This is # is the lowest therefore the best match, in the compatabilityArray.")
+            console.log(bestFriend);
+            console.log("This is index of the best friend in the friends.js array")
+            console.log(compatabilityArray.indexOf(bestFriend));
+
+            bff = compatabilityArray.indexOf(bestFriend);
+
+            console.log(data[bff].name);
+
+            $('#bffName').append(data[bff].name);
         });
 
+
+
+        $('#bestFriendModal').modal("toggle");
+
         return false;
+
+
     });
     </script>
 </body>
