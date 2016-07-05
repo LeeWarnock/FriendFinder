@@ -13,7 +13,7 @@ Node, Express, HTML, CSS, Boostrap, Javascript, JQuery
 ![Screen2](https://s31.postimg.org/enavqg80r/Screen_Shot_2016_07_05_at_1_09_34_PM.png "Matched!")
 
 ## License
-Copyright Aaron Karlsruher 2016
+© Copyright Aaron Karlsruher 2016
   <tabTrigger></tabTrigger>
 </snippet>
 
