@@ -8,13 +8,10 @@ Friend Finder is a match making application, much like a dating app, that will t
 https://akfriendfinder.herokuapp.com/
 ## Technologies Used
 Node, Express, HTML, CSS, Boostrap, Javascript, JQuery
-## History
-TODO: Write history
-## Credits
-TODO: Write credits
+## Screen Shots
+![alt tag](http://imgur.com/a/wxq4J)
 ## License
-TODO: Write license
-]]></content>
+Copyright Aaron Karlsruher 2016
   <tabTrigger>readme</tabTrigger>
 </snippet>
 
