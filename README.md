@@ -9,7 +9,9 @@ https://akfriendfinder.herokuapp.com/
 ## Technologies Used
 Node, Express, HTML, CSS, Boostrap, Javascript, JQuery
 ## Screen Shots
-![Alt text](https://s32.postimg.org/4gs6d5y45/Screen_Shot_2016_07_05_at_1_09_11_PM.png "Optional title")
+![Screen1](https://s32.postimg.org/4gs6d5y45/Screen_Shot_2016_07_05_at_1_09_11_PM.png "Survey")
+![Screen2](https://s31.postimg.org/enavqg80r/Screen_Shot_2016_07_05_at_1_09_34_PM.png "Matched!")
+
 ## License
 Copyright Aaron Karlsruher 2016
   <tabTrigger>readme</tabTrigger>
