@@ -14,7 +14,7 @@ Node, Express, HTML, CSS, Boostrap, Javascript, JQuery
 
 ## License
 Copyright Aaron Karlsruher 2016
-  <tabTrigger>readme</tabTrigger>
+  <tabTrigger></tabTrigger>
 </snippet>
 
 
