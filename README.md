@@ -1,6 +1,6 @@
 <snippet>
-  <content><![CDATA[
-# ${1:Project Name}
+  <content>
+# Friend Finder
 TODO: Write a project description
 ## Installation
 TODO: Describe the installation process
