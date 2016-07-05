@@ -3,7 +3,7 @@
 # Friend Finder
 
 ## About
-Friend Finder is a match making application that helps match 2 people based on their survey results.
+Friend Finder is a match making application, much like a dating app, that will take in results from users' surveys then compare their results against all other users who have completed it. The application will then display the name and picture of the user with the best match overall.
 ## Deployed
 https://akfriendfinder.herokuapp.com/
 ## Technologies Used
