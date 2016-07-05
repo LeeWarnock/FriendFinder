@@ -7,7 +7,7 @@ Friend Finder is a match making application that helps match 2 people based on t
 ## Deployed
 https://akfriendfinder.herokuapp.com/
 ## Technologies Used
-HTML, CSS, Boostrap, Javascript, JQuery
+Node, Express,HTML, CSS, Boostrap, Javascript, JQuery
 ## History
 TODO: Write history
 ## Credits
